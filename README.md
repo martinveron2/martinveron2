@@ -37,6 +37,27 @@ I build engineering tools and automation systems that connect aerospace analysis
 
 ## Tools & technologies
 
+### Engineering · CAD · CAE · CFD
+
+<p>
+  <img src="https://img.shields.io/badge/CATIA-CAD-005386?style=for-the-badge" alt="CATIA">
+  <img src="https://img.shields.io/badge/SOLIDWORKS-CAD-ED1C24?style=for-the-badge" alt="SOLIDWORKS">
+  <img src="https://img.shields.io/badge/ANSYS-CAE-FFB71B?style=for-the-badge" alt="ANSYS">
+  <img src="https://img.shields.io/badge/ANSYS%20Fluent-CFD-FFB71B?style=for-the-badge" alt="ANSYS Fluent">
+  <img src="https://img.shields.io/badge/OpenFOAM-CFD-005EB8?style=for-the-badge" alt="OpenFOAM">
+  <img src="https://img.shields.io/badge/XFLR5-Aerodynamics-1F4E79?style=for-the-badge" alt="XFLR5">
+  <img src="https://img.shields.io/badge/Fusion%20360-CAD%2FCAE-F36F21?style=for-the-badge" alt="Fusion 360">
+  <img src="https://img.shields.io/badge/AutoCAD-CAD-E51050?style=for-the-badge" alt="AutoCAD">
+  <img src="https://img.shields.io/badge/MATLAB-Numerical%20Computing-0076A8?style=for-the-badge" alt="MATLAB">
+  <img src="https://img.shields.io/badge/Simulink-Simulation-F36F21?style=for-the-badge" alt="Simulink">
+  <img src="https://img.shields.io/badge/OpenRocket-Rocket%20Simulation-CB2027?style=for-the-badge" alt="OpenRocket">
+  <img src="https://img.shields.io/badge/ParaView-CFD%20Postprocessing-2F6690?style=for-the-badge" alt="ParaView">
+  <img src="https://img.shields.io/badge/Abaqus-FEA-005386?style=for-the-badge" alt="Abaqus">
+  <img src="https://img.shields.io/badge/STAR--CCM%2B-CFD-0078D4?style=for-the-badge" alt="STAR-CCM+">
+</p>
+
+### Development · Automation · Infrastructure
+
 <p>
   <img src="https://skillicons.dev/icons?i=python,git,github,linux,docker,aws,vercel,vscode" alt="Python, Git, GitHub, Linux, Docker, AWS, Vercel and VS Code">
 </p>

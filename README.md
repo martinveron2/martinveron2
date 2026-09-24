@@ -39,26 +39,39 @@ I build engineering tools and automation systems that connect aerospace analysis
 
 ### Engineering · CAD · CAE · CFD
 
+<p align="left">
+  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/CATIA%20Logo.svg" alt="CATIA" title="CATIA" height="46" />
+  &nbsp;&nbsp;
+  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/SOLIDWORKS%20Logo.svg" alt="SOLIDWORKS" title="SOLIDWORKS" height="46" />
+  &nbsp;&nbsp;
+  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Ansys%20logo%20%282019%29.svg" alt="ANSYS" title="ANSYS" height="46" />
+  &nbsp;&nbsp;
+  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Fusion360%20Logo.svg" alt="Fusion 360" title="Fusion 360" height="46" />
+  &nbsp;&nbsp;
+  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Matlab%20icon.png" alt="MATLAB" title="MATLAB" height="46" />
+  &nbsp;&nbsp;
+  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Simulink%20Logo%20%28non-wordmark%29.png" alt="Simulink" title="Simulink" height="46" />
+  &nbsp;&nbsp;
+  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/OpenRocket%20logo.png" alt="OpenRocket" title="OpenRocket" height="46" />
+</p>
+
+<p align="left">
+  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Autodesk%20AutoCAD%20Logo.svg" alt="AutoCAD" title="AutoCAD" height="40" />
+  &nbsp;&nbsp;
+  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/OpenFOAM%20logo.svg" alt="OpenFOAM" title="OpenFOAM" height="40" />
+  &nbsp;&nbsp;
+  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/ABAQUS%20logo.png" alt="Abaqus" title="Abaqus" height="40" />
+  &nbsp;&nbsp;
+  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/ParaView%20splash1.png" alt="ParaView" title="ParaView" height="40" />
+</p>
+
 <p>
-  <img src="https://img.shields.io/badge/CATIA-CAD-005386?style=for-the-badge" alt="CATIA">
-  <img src="https://img.shields.io/badge/SOLIDWORKS-CAD-ED1C24?style=for-the-badge" alt="SOLIDWORKS">
-  <img src="https://img.shields.io/badge/ANSYS-CAE-FFB71B?style=for-the-badge" alt="ANSYS">
-  <img src="https://img.shields.io/badge/ANSYS%20Fluent-CFD-FFB71B?style=for-the-badge" alt="ANSYS Fluent">
-  <img src="https://img.shields.io/badge/OpenFOAM-CFD-005EB8?style=for-the-badge" alt="OpenFOAM">
-  <img src="https://img.shields.io/badge/XFLR5-Aerodynamics-1F4E79?style=for-the-badge" alt="XFLR5">
-  <img src="https://img.shields.io/badge/Fusion%20360-CAD%2FCAE-F36F21?style=for-the-badge" alt="Fusion 360">
-  <img src="https://img.shields.io/badge/AutoCAD-CAD-E51050?style=for-the-badge" alt="AutoCAD">
-  <img src="https://img.shields.io/badge/MATLAB-Numerical%20Computing-0076A8?style=for-the-badge" alt="MATLAB">
-  <img src="https://img.shields.io/badge/Simulink-Simulation-F36F21?style=for-the-badge" alt="Simulink">
-  <img src="https://img.shields.io/badge/OpenRocket-Rocket%20Simulation-CB2027?style=for-the-badge" alt="OpenRocket">
-  <img src="https://img.shields.io/badge/ParaView-CFD%20Postprocessing-2F6690?style=for-the-badge" alt="ParaView">
-  <img src="https://img.shields.io/badge/Abaqus-FEA-005386?style=for-the-badge" alt="Abaqus">
-  <img src="https://img.shields.io/badge/STAR--CCM%2B-CFD-0078D4?style=for-the-badge" alt="STAR-CCM+">
+  <strong>Also:</strong> ANSYS Fluent · XFLR5 · STAR-CCM+ · CFD · FEA
 </p>
 
 ### Development · Automation · Infrastructure
 
-<p>
+<p align="left">
   <img src="https://skillicons.dev/icons?i=python,git,github,linux,docker,aws,vercel,vscode" alt="Python, Git, GitHub, Linux, Docker, AWS, Vercel and VS Code">
 </p>
 

@@ -39,35 +39,62 @@ I build engineering tools and automation systems that connect aerospace analysis
 
 ### Engineering · CAD · CAE · CFD
 
-<p align="left">
-  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/CATIA%20Logo.svg" alt="CATIA" title="CATIA" height="46" />
-  &nbsp;&nbsp;
-  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/SOLIDWORKS%20Logo.svg" alt="SOLIDWORKS" title="SOLIDWORKS" height="46" />
-  &nbsp;&nbsp;
-  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Ansys%20logo%20%282019%29.svg" alt="ANSYS" title="ANSYS" height="46" />
-  &nbsp;&nbsp;
-  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Fusion360%20Logo.svg" alt="Fusion 360" title="Fusion 360" height="46" />
-  &nbsp;&nbsp;
-  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Matlab%20icon.png" alt="MATLAB" title="MATLAB" height="46" />
-  &nbsp;&nbsp;
-  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Simulink%20Logo%20%28non-wordmark%29.png" alt="Simulink" title="Simulink" height="46" />
-  &nbsp;&nbsp;
-  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/OpenRocket%20logo.png" alt="OpenRocket" title="OpenRocket" height="46" />
-</p>
-
-<p align="left">
-  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Autodesk%20AutoCAD%20Logo.svg" alt="AutoCAD" title="AutoCAD" height="40" />
-  &nbsp;&nbsp;
-  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/OpenFOAM%20logo.svg" alt="OpenFOAM" title="OpenFOAM" height="40" />
-  &nbsp;&nbsp;
-  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/ABAQUS%20logo.png" alt="Abaqus" title="Abaqus" height="40" />
-  &nbsp;&nbsp;
-  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/ParaView%20splash1.png" alt="ParaView" title="ParaView" height="40" />
-</p>
-
-<p>
-  <strong>Also:</strong> ANSYS Fluent · XFLR5 · STAR-CCM+ · CFD · FEA
-</p>
+<table>
+  <tr>
+    <td align="center" width="150">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/CATIA%20Logo.svg" alt="CATIA" title="CATIA" width="110"><br>
+      <sub><b>CATIA</b></sub>
+    </td>
+    <td align="center" width="150">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/SOLIDWORKS%20Logo.svg" alt="SOLIDWORKS" title="SOLIDWORKS" width="125"><br>
+      <sub><b>SOLIDWORKS</b></sub>
+    </td>
+    <td align="center" width="150">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Ansys%20logo%20%282019%29.svg" alt="ANSYS" title="ANSYS" width="95"><br>
+      <sub><b>ANSYS</b></sub>
+    </td>
+    <td align="center" width="150">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Autodesk%20AutoCAD%20Logo.svg" alt="AutoCAD" title="AutoCAD" width="90"><br>
+      <sub><b>AutoCAD</b></sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Fusion360%20Logo.svg" alt="Fusion 360" title="Fusion 360" width="52"><br>
+      <sub><b>Fusion 360</b></sub>
+    </td>
+    <td align="center">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Matlab%20icon.png" alt="MATLAB" title="MATLAB" width="52"><br>
+      <sub><b>MATLAB</b></sub>
+    </td>
+    <td align="center">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Simulink%20Logo%20%28non-wordmark%29.png" alt="Simulink" title="Simulink" width="52"><br>
+      <sub><b>Simulink</b></sub>
+    </td>
+    <td align="center">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/OpenRocket%20logo.png" alt="OpenRocket" title="OpenRocket" width="52"><br>
+      <sub><b>OpenRocket</b></sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/OpenFOAM%20logo.svg" alt="OpenFOAM" title="OpenFOAM" width="105"><br>
+      <sub><b>OpenFOAM</b></sub>
+    </td>
+    <td align="center">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/ABAQUS%20logo.png" alt="Abaqus" title="Abaqus" width="105"><br>
+      <sub><b>Abaqus</b></sub>
+    </td>
+    <td align="center">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/ParaView%20splash1.png" alt="ParaView" title="ParaView" width="105"><br>
+      <sub><b>ParaView</b></sub>
+    </td>
+    <td align="center">
+      <b>CFD / FEA</b><br>
+      <sub>ANSYS Fluent · XFLR5<br>STAR-CCM+</sub>
+    </td>
+  </tr>
+</table>
 
 ### Development · Automation · Infrastructure
 

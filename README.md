@@ -18,8 +18,6 @@ Engineering calculation assistant for experimental rocket analysis, including ge
 [Open TRAJECTUM](https://trajectum-vercel.vercel.app) · [Repository](https://github.com/martinveron2/TRAJECTUM)
 
 ### ⚙️ PERFILIA
-Automation platform focused on structured workflows, adapters and AI-assisted operational processes.
-
 [Repository](https://github.com/martinveron2/PERFILIA)
 
 ## Background

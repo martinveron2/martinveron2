@@ -2,27 +2,36 @@
 
 Repositorio de apoyo reproducible para los gráficos del **TP2 de Aerodinámica Teórica**.
 
+## Criterio de trabajo
+
+Todos los gráficos del TP se generan con **Python + Matplotlib** desde un único archivo maestro, de modo que las figuras incluidas en el informe puedan reproducirse y actualizarse sin edición manual.
+
 ## Alcance actual
 
-Este bloque contiene la reproducción en Python/Matplotlib de la referencia experimental del perfil **NACA 2410** para **R = 3.0 × 10^6**, utilizada posteriormente en la comparación con:
+Actualmente el archivo maestro contiene:
 
-- Perfil Delgado
-- Perfil de Joukowski
-- XFLR5
-- Referencia experimental NACA
+- referencia experimental NACA 2410 para **R = 3.0 × 10^6**;
+- curva **cₗ = f(α)** de Perfil Delgado;
+- curva **cₘ,c/4 = f(α)** de Perfil Delgado.
+
+El mismo archivo se irá ampliando con:
+
+- Perfil de Joukowski;
+- resultados XFLR5;
+- superposición final del Ejercicio 1;
+- distribución **Cp(x)** a **α = 3°** del Ejercicio 2;
+- superposición geométrica NACA 2410 / Joukowski del Ejercicio 3.
 
 ## Fuente experimental
 
 **NACA Research Memorandum L7I22 — Figure 17**  
 Perfil NACA 2410, cuerda de 24 in.
 
-Los puntos experimentales fueron obtenidos a partir de la figura original y se emplean como base para los gráficos del informe.
+Los puntos experimentales se emplean como base de comparación con Perfil Delgado, Perfil de Joukowski y XFLR5.
 
 ## Archivo principal
 
 `TP2_NACA2410_GRAFICOS_MASTER.py`
-
-El archivo se irá ampliando con los gráficos definitivos de los Ejercicios 1, 2 y 3 del TP.
 
 ## Ejecución
 
@@ -31,3 +40,12 @@ python TP2_NACA2410_GRAFICOS_MASTER.py
 ```
 
 Las figuras se generan automáticamente en la carpeta `figuras_tp2/`.
+
+### Figuras generadas actualmente
+
+- `01_Referencia_Experimental_Cl.png`
+- `02_Referencia_Experimental_Cm.png`
+- `03_Perfil_Delgado_Cl.png`
+- `04_Perfil_Delgado_Cm.png`
+
+Las figuras de Perfil Delgado incluidas en el informe Word se generan directamente desde este archivo maestro.

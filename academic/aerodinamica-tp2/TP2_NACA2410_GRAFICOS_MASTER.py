@@ -92,22 +92,81 @@ def grafico_cm_experimental():
     plt.close(fig)
 
 # ============================================================
-# 2. EJERCICIO 1 — PD / PJ / XFLR5 / EXPERIMENTAL
+# 2. EJERCICIO 1 — PERFIL DELGADO (PD)
+# ============================================================
+# Teoría lineal de perfil delgado aplicada a la línea media NACA 2410.
+# Resultados empleados en el informe:
+# alpha_L=0 = -2.077 deg
+# dCl/dalpha = 2*pi rad^-1 = 0.10966 deg^-1
+# Cm,c/4 = -0.05312
+
+alpha_pd = np.array([-6,-4,-2,0,2,3,4,6,8,10,12], dtype=float)
+
+cl_pd = np.array([
+    -0.430,-0.211,0.008,0.228,0.447,0.557,0.666,0.886,1.105,1.324,1.544
+], dtype=float)
+
+cm_pd = np.full_like(alpha_pd, -0.05312, dtype=float)
+
+def grafico_cl_perfil_delgado():
+    fig, ax = plt.subplots(figsize=(7.2, 4.8))
+    ax.plot(
+        alpha_pd, cl_pd,
+        marker="o", linewidth=1.5, markersize=4,
+        label="Perfil Delgado (PD)"
+    )
+    ax.set_xlim(-8, 14)
+    ax.set_xticks([-8,-4,0,4,8,12])
+    ax.set_ylim(-0.8, 1.8)
+    ax.set_yticks([-0.8,-0.4,0.0,0.4,0.8,1.2,1.6])
+    ax.set_xlabel("α [deg]")
+    ax.set_ylabel("cₗ [-]")
+    ax.set_title("NACA 2410 — Perfil Delgado — cₗ = f(α)")
+    ax.grid(True, alpha=0.35)
+    ax.legend()
+    fig.tight_layout()
+    fig.savefig(OUT / "03_Perfil_Delgado_Cl.png", bbox_inches="tight")
+    plt.close(fig)
+
+def grafico_cm_perfil_delgado():
+    fig, ax = plt.subplots(figsize=(7.2, 4.8))
+    ax.plot(
+        alpha_pd, cm_pd,
+        marker="o", linewidth=1.5, markersize=4,
+        label="Perfil Delgado (PD)"
+    )
+    ax.set_xlim(-8, 14)
+    ax.set_xticks([-8,-4,0,4,8,12])
+    ax.set_ylim(-0.12, 0.0)
+    ax.set_yticks([-0.12,-0.10,-0.08,-0.06,-0.04,-0.02,0.0])
+    ax.set_xlabel("α [deg]")
+    ax.set_ylabel("cₘ,c/4 [-]")
+    ax.set_title("NACA 2410 — Perfil Delgado — cₘ,c/4 = f(α)")
+    ax.grid(True, alpha=0.35)
+    ax.legend()
+    fig.tight_layout()
+    fig.savefig(OUT / "04_Perfil_Delgado_Cm.png", bbox_inches="tight")
+    plt.close(fig)
+
+# ============================================================
+# 3. EJERCICIO 1 — SUPERPOSICIÓN PD / PJ / XFLR5 / EXPERIMENTAL
 # ============================================================
 # Se incorporarán aquí las cuatro series definitivas de c_l(α)
 # y c_m,c/4(α), manteniendo este mismo estilo gráfico.
 
 # ============================================================
-# 3. EJERCICIO 2 — Cp(x) A α = 3°
+# 4. EJERCICIO 2 — Cp(x) A α = 3°
 # ============================================================
 # Se incorporarán las series de Perfil Delgado, Joukowski y XFLR5.
 
 # ============================================================
-# 4. EJERCICIO 3 — GEOMETRÍA NACA 2410 VS JOUKOWSKI
+# 5. EJERCICIO 3 — GEOMETRÍA NACA 2410 VS JOUKOWSKI
 # ============================================================
 # Se incorporará la superposición geométrica de ambos perfiles.
 
 if __name__ == "__main__":
     grafico_cl_experimental()
     grafico_cm_experimental()
+    grafico_cl_perfil_delgado()
+    grafico_cm_perfil_delgado()
     print(f"Figuras generadas en: {OUT.resolve()}")

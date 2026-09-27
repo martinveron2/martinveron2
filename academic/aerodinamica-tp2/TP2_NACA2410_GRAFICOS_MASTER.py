@@ -157,7 +157,152 @@ def grafico_cm_perfil_delgado():
 # ============================================================
 # 4. EJERCICIO 2 — Cp(x) A α = 3°
 # ============================================================
-# Se incorporarán las series de Perfil Delgado, Joukowski y XFLR5.
+
+alpha_ej2 = np.deg2rad(3.0)
+
+# --- Perfil Delgado
+I0_pd = 0.004493
+A0_pd = alpha_ej2 - I0_pd
+A1_pd = 0.081495
+A2_pd = 0.013861
+
+theta_pd = np.linspace(0.010, np.pi - 0.001, 1600)
+x_cp_pd = (1.0 - np.cos(theta_pd)) / 2.0
+
+g_pd = (
+    A0_pd * (1.0 + np.cos(theta_pd)) / np.sin(theta_pd)
+    + A1_pd * np.sin(theta_pd)
+    + A2_pd * np.sin(2.0 * theta_pd)
+)
+
+cp_pd_extrados = 1.0 - (1.0 + g_pd) ** 2
+cp_pd_intrados = 1.0 - (1.0 - g_pd) ** 2
+
+# --- Perfil de Joukowski
+# Misma geometría adoptada en el Ejercicio 1.
+a_j = 1.0
+z0_j = -0.083608 + 0.043340j
+R_j = 1.084474
+theta_bf_j = np.angle(a_j - z0_j)
+
+# Condición de Kutta.
+Gamma_j = 4.0 * np.pi * R_j * np.sin(alpha_ej2 - theta_bf_j)
+
+theta_j = np.linspace(
+    theta_bf_j + 1e-3,
+    theta_bf_j + 2.0 * np.pi - 1e-3,
+    5000
+)
+
+z_j = z0_j + R_j * np.exp(1j * theta_j)
+
+dW_dz_j = (
+    np.exp(-1j * alpha_ej2)
+    - (R_j ** 2) * np.exp(1j * alpha_ej2) / (z_j - z0_j) ** 2
+    + 1j * Gamma_j / (2.0 * np.pi * (z_j - z0_j))
+)
+
+dzeta_dz_j = 1.0 - a_j ** 2 / z_j ** 2
+vel_j = np.abs(dW_dz_j / dzeta_dz_j)
+cp_j = 1.0 - vel_j ** 2
+
+zeta_j = z_j + a_j ** 2 / z_j
+x_j = (
+    (zeta_j.real - zeta_j.real.min())
+    / (zeta_j.real.max() - zeta_j.real.min())
+)
+
+mask_sup_j = theta_j < theta_bf_j + np.pi
+mask_inf_j = ~mask_sup_j
+
+x_j_sup = x_j[mask_sup_j]
+cp_j_sup = cp_j[mask_sup_j]
+x_j_inf = x_j[mask_inf_j]
+cp_j_inf = cp_j[mask_inf_j]
+
+ord_sup = np.argsort(x_j_sup)
+ord_inf = np.argsort(x_j_inf)
+
+x_j_sup = x_j_sup[ord_sup]
+cp_j_sup = cp_j_sup[ord_sup]
+x_j_inf = x_j_inf[ord_inf]
+cp_j_inf = cp_j_inf[ord_inf]
+
+# --- XFLR5
+# Operating point real documentado: alpha=3 deg, Re=3.0e6,
+# Mach=0, Ncrit=9, Cp_min ~= -1.0007.
+#
+# La serie siguiente reproduce la traza XFLR5 que ya estaba incorporada en
+# la versión de referencia del informe y queda centralizada aquí para que
+# todo el TP se grafique desde Python. Si se recupera la exportación tabulada
+# x/c-Cp del operating point, esta única serie debe reemplazarse sin tocar
+# el resto del flujo de generación.
+
+x_xflr5_cp = np.array([
+    0.005,0.010,0.020,0.030,0.050,0.080,0.100,0.150,0.200,
+    0.300,0.400,0.500,0.600,0.700,0.800,0.900,0.950,0.980,0.995
+], dtype=float)
+
+cp_xflr5_extrados = np.array([
+    -0.9007,-0.9873,-1.0007,-0.9877,-0.9503,-0.9040,-0.8816,
+    -0.8344,-0.7881,-0.6987,-0.5695,-0.4669,-0.3742,-0.2873,
+    -0.1887,-0.0604,0.0364,0.1159,0.1541
+], dtype=float)
+
+cp_xflr5_intrados = np.array([
+    0.9219,0.7062,0.4588,0.3254,0.1958,0.1159,0.0946,0.0629,
+    0.0596,0.0629,0.0629,0.0629,0.0728,0.0861,0.0960,0.1159,
+    0.1291,0.1402,0.1729
+], dtype=float)
+
+def grafico_ejercicio2_cp_alpha3():
+    fig, ax = plt.subplots(figsize=(7.7, 4.9))
+
+    ax.plot(
+        x_cp_pd, cp_pd_extrados,
+        linewidth=1.6,
+        label="PD - extradós"
+    )
+    ax.plot(
+        x_cp_pd, cp_pd_intrados,
+        "--", linewidth=1.6,
+        label="PD - intradós"
+    )
+    ax.plot(
+        x_j_sup, cp_j_sup,
+        linewidth=1.6,
+        label="PJ - extradós"
+    )
+    ax.plot(
+        x_j_inf, cp_j_inf,
+        "--", linewidth=1.6,
+        label="PJ - intradós"
+    )
+    ax.plot(
+        x_xflr5_cp, cp_xflr5_extrados,
+        linewidth=2.2,
+        label="XFLR5 - extradós"
+    )
+    ax.plot(
+        x_xflr5_cp, cp_xflr5_intrados,
+        "--", linewidth=2.2,
+        label="XFLR5 - intradós"
+    )
+
+    ax.set_xlim(0.0, 1.0)
+    ax.set_ylim(1.2, -5.0)
+    ax.set_xlabel("x/c")
+    ax.set_ylabel("Cₚ")
+    ax.set_title("NACA 2410 — Distribución de presión a α = 3°")
+    ax.grid(True, alpha=0.30)
+    ax.legend(ncol=2, loc="upper right")
+
+    fig.tight_layout()
+    fig.savefig(
+        OUT / "05_Ejercicio2_Cp_alpha3_superpuesto.png",
+        bbox_inches="tight"
+    )
+    plt.close(fig)
 
 # ============================================================
 # 5. EJERCICIO 3 — GEOMETRÍA NACA 2410 VS JOUKOWSKI
@@ -169,4 +314,5 @@ if __name__ == "__main__":
     grafico_cm_experimental()
     grafico_cl_perfil_delgado()
     grafico_cm_perfil_delgado()
+    grafico_ejercicio2_cp_alpha3()
     print(f"Figuras generadas en: {OUT.resolve()}")

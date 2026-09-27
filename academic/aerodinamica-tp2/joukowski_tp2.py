@@ -81,6 +81,25 @@ def naca2410(n: int = 1000):
             x+yt*np.sin(beta), yc-yt*np.cos(beta))
 
 
+def cp_superficies(alpha_grados: float = 3., x_grid=None, n: int = 8192):
+    """Cp de ambas caras sobre una malla creciente común de x/c.
+
+    Sirve para superponer la serie Joukowski con PD y XFLR5 sin confundir
+    el orden de recorrido del contorno (extradós fuga→ataque e intradós
+    ataque→fuga). Conserva ambas caras; no promedia sus presiones.
+    """
+    p = punto_operacion(alpha_grados, n=n)
+    x_grid = np.linspace(0., 1., 201) if x_grid is None else np.asarray(x_grid, dtype=float)
+    if x_grid.ndim != 1 or not np.isfinite(x_grid).all() or (x_grid < 0).any() or (x_grid > 1).any():
+        raise ValueError("x_grid debe ser un vector finito con 0 <= x/c <= 1")
+    le = np.argmin(p["x"])
+    x_upper = p["x"][:le+1][::-1]
+    cp_upper = p["cp"][:le+1][::-1]
+    x_lower = np.r_[p["x"][le:], 1.]
+    cp_lower = np.r_[p["cp"][le:], p["cp"][0]]
+    return x_grid, np.interp(x_grid, x_upper, cp_upper), np.interp(x_grid, x_lower, cp_lower)
+
+
 def guardar():
     OUT.mkdir(parents=True, exist_ok=True)
     plt.rcParams.update({"font.family":"sans-serif", "font.sans-serif":["Arial","DejaVu Sans"],
@@ -97,6 +116,10 @@ def guardar():
         le=np.argmin(p3["x"])
         w.writerows(("extrados" if i<=le else "intrados",xx,yy,cc)
                     for i,(xx,yy,cc) in enumerate(zip(p3["x"],p3["y"],p3["cp"])))
+    x_common, cp_upper, cp_lower = cp_superficies(3.)
+    with (OUT/"cp_joukowski_3deg_malla_comun.csv").open("w",newline="",encoding="utf-8") as f:
+        w=csv.writer(f);w.writerow(["x_c","cp_extrados","cp_intrados","cp_intrados_menos_extrados"])
+        w.writerows(zip(x_common,cp_upper,cp_lower,cp_lower-cp_upper))
     nu=naca2410()
     fig, ax=plt.subplots(figsize=(7.2,4.2))
     ax.plot(x,y,color="#07549A",lw=2,label="Joukowski ajustado")

@@ -307,7 +307,106 @@ def grafico_ejercicio2_cp_alpha3():
 # ============================================================
 # 5. EJERCICIO 3 — GEOMETRÍA NACA 2410 VS JOUKOWSKI
 # ============================================================
-# Se incorporará la superposición geométrica de ambos perfiles.
+
+# --- Geometría NACA 2410
+m_naca = 0.02
+p_naca = 0.40
+t_naca = 0.10
+
+x_naca = np.linspace(0.0, 1.0, 500)
+
+yt_naca = 5.0 * t_naca * (
+    0.2969 * np.sqrt(x_naca)
+    - 0.1260 * x_naca
+    - 0.3516 * x_naca ** 2
+    + 0.2843 * x_naca ** 3
+    - 0.1015 * x_naca ** 4
+)
+
+yc_naca = np.where(
+    x_naca < p_naca,
+    (m_naca / p_naca ** 2)
+    * (2.0 * p_naca * x_naca - x_naca ** 2),
+    (m_naca / (1.0 - p_naca) ** 2)
+    * (
+        (1.0 - 2.0 * p_naca)
+        + 2.0 * p_naca * x_naca
+        - x_naca ** 2
+    )
+)
+
+dyc_dx_naca = np.where(
+    x_naca < p_naca,
+    (2.0 * m_naca / p_naca ** 2) * (p_naca - x_naca),
+    (2.0 * m_naca / (1.0 - p_naca) ** 2)
+    * (p_naca - x_naca)
+)
+
+theta_naca = np.arctan(dyc_dx_naca)
+
+xu_naca = x_naca - yt_naca * np.sin(theta_naca)
+yu_naca = yc_naca + yt_naca * np.cos(theta_naca)
+
+xl_naca = x_naca + yt_naca * np.sin(theta_naca)
+yl_naca = yc_naca - yt_naca * np.cos(theta_naca)
+
+# --- Geometría Joukowski
+# Se conserva exactamente la geometría adoptada en los Ejercicios 1 y 2.
+a_geom = 1.0
+z0_geom = -0.083608 + 0.043340j
+R_geom = 1.084474
+
+theta_geom = np.linspace(0.0, 2.0 * np.pi, 5000, endpoint=False)
+z_geom = z0_geom + R_geom * np.exp(1j * theta_geom)
+zeta_geom = z_geom + a_geom ** 2 / z_geom
+
+xj_raw = zeta_geom.real
+yj_raw = zeta_geom.imag
+
+xj_min = xj_raw.min()
+xj_max = xj_raw.max()
+cj = xj_max - xj_min
+
+xj_geom = (xj_raw - xj_min) / cj
+yj_geom = yj_raw / cj
+
+# La transformación queda normalizada a cuerda unitaria, con BA en x/c=0
+# y BF en x/c=1, para superponerla directamente con el NACA 2410.
+
+def grafico_ejercicio3_geometria():
+    fig, ax = plt.subplots(figsize=(8.0, 4.4))
+
+    ax.plot(
+        xu_naca, yu_naca,
+        linewidth=1.8,
+        label="NACA 2410"
+    )
+    ax.plot(
+        xl_naca, yl_naca,
+        linewidth=1.8
+    )
+    ax.plot(
+        xj_geom, yj_geom,
+        "--", linewidth=1.8,
+        label="Perfil de Joukowski"
+    )
+
+    ax.axhline(0.0, linewidth=0.8)
+    ax.set_xlim(-0.02, 1.02)
+    ax.set_ylim(-0.09, 0.10)
+    ax.set_xlabel("x/c")
+    ax.set_ylabel("y/c")
+    ax.set_title("Ejercicio 3 — NACA 2410 y Perfil de Joukowski")
+    ax.grid(True, alpha=0.30)
+    ax.legend()
+    ax.set_aspect("equal", adjustable="box")
+
+    fig.tight_layout()
+    fig.savefig(
+        OUT / "06_Ejercicio3_NACA2410_vs_Joukowski.png",
+        bbox_inches="tight"
+    )
+    plt.close(fig)
 
 if __name__ == "__main__":
     grafico_cl_experimental()
@@ -315,4 +414,5 @@ if __name__ == "__main__":
     grafico_cl_perfil_delgado()
     grafico_cm_perfil_delgado()
     grafico_ejercicio2_cp_alpha3()
+    grafico_ejercicio3_geometria()
     print(f"Figuras generadas en: {OUT.resolve()}")

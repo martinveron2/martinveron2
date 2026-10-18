@@ -15,6 +15,8 @@ I build engineering tools and automation systems that connect aerospace analysis
   </a>
 </p>
 
+[❤️ **Sponsor my work**](https://github.com/sponsors/martinveron2)
+
 </div>
 
 ---
